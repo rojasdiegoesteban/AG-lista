@@ -1,0 +1,25 @@
+<div>
+    <h2>Lista de alumnos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Indice</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Curso</th>
+                <th>Edad</th>
+                <th>Fecha Inscripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumno of alumnos; let indice = index" [ngClass]="{'pink': alumno.sexo ==='F', 'blue': alumno.sexo === 'M'}">
+                <td>{{indice + 1}}</td>
+                <td>{{alumno.nombre | uppercase}}</td>
+                <td>{{alumno.apellido | uppercase}}</td>
+                <td>{{alumno.curso | uppercase}}</td>
+                <td>{{calcularEdad(alumno.fechaNacimiento)}}</td>
+                <td>{{alumno.fechaInscripcion | date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
